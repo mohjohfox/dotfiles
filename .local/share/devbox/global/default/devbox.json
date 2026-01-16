@@ -1,0 +1,43 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
+  "packages": [
+    "ripgrep@latest",
+    "kubectx@0.9.5",
+    "vim@latest",
+    "neovim@latest",
+    "go@latest",
+    "zulu@latest",
+    "kubectl@latest",
+    "docker@29.1.3",
+    "nodejs@25.3.0",
+    "git@latest",
+    "azure-cli@latest",
+    "gh@latest",
+    "glab@latest",
+    "opencode@latest",
+    "codex@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      "echo 'Welcome to devbox!' > /dev/null",
+      "if command -v javac >/dev/null 2>&1; then export JAVA_HOME=\"$(dirname \"$(dirname \"$(readlink -f \"$(command -v javac)\")\")\")\"; fi",
+      "if [ -n \"$JAVA_HOME\" ]; then export PATH=\"$JAVA_HOME/bin:$PATH\"; fi"
+    ],
+    "scripts": {
+      "versions": [
+        "vim --version | head -n 2",
+        "nvim --version | head -n 2",
+        "go version",
+        "java -version",
+        "kubectl version --client=true --output=yaml | head -n 20",
+        "git --version",
+        "az version",
+        "gh --version",
+        "glab --version"
+      ],
+      "test": [
+        "echo \"Error: no test specified\" && exit 1"
+      ]
+    }
+  }
+}
