@@ -141,6 +141,9 @@ if [[ -n $TMUX ]]; then               # Only run when we’re inside tmux
   __tmux_rename_window
 fi
 
+alias k=kubectl
+alias ca=cursor-agent
+
 # Mac setup for pomo
 alias work="timer 60m && terminal-notifier -message 'Pomodoro'\
         -title 'Work Timer is up! Take a Break 😊'\
